@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:api'], function (){
     Route::resource('employees', 'API\EmployeesController',['except' => ['edit','create']]);
-    Route::resource('jobs', 'API\JobsController',['only' => ['index','show']]);
+    Route::resource('jobs', 'API\JobsController',['except' => ['edit']]);
 });
 
 Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
